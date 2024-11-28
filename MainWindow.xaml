@@ -1,0 +1,14 @@
+﻿<Window x:Class="CompanyManagementApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Management Dashboard" Height="450" Width="400">
+    <Grid>
+        <TextBlock Text="Management Dashboard" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,0,0" />
+
+        <!-- Navigation Buttons for each module -->
+        <Button Content="Employee Management" Width="200" Height="50" Margin="0,100,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" Click="OpenEmployeeModule_Click"/>
+        <Button Content="Branch Management" Width="200" Height="50" Margin="0,170,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" Click="OpenBranchModule_Click"/>
+        <Button Content="Works With Management" Width="200" Height="50" Margin="0,240,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" Click="OpenWorksWithModule_Click"/>
+        <Button Content="Client Management" Width="200" Height="50" Margin="0,310,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" Click="OpenClientModule_Click"/>
+    </Grid>
+</Window>

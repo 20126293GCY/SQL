@@ -1,0 +1,76 @@
+﻿<Window x:Class="CompanyManagementApp.EmployeeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Employee Management" Height="900" Width="800" Background="#f5f5f5">
+    <Grid Margin="20">
+        <!-- Title -->
+        <TextBlock Text="Employee Management" FontSize="28" FontWeight="Bold" Foreground="#333" HorizontalAlignment="Center" Margin="0,0,0,10" />
+
+        <!-- Search Box -->
+        <DockPanel VerticalAlignment="Top" LastChildFill="True" Margin="0,50,0,0">
+            <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="0,0,0,10">
+                <TextBox x:Name="SearchTextBox" TextChanged="SearchTextBox_TextChanged" Width="300" Height="35" 
+                         Margin="0,0,10,0" Background="#ffffff" VerticalAlignment="Center" FontSize="18" Text="" />
+            </StackPanel>
+        </DockPanel>
+
+        <!-- DataGrid to display employees -->
+        <DataGrid x:Name="EmployeeDataGrid" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="250" Margin="0,100,0,0" 
+                  Background="White" BorderBrush="#d3d3d3" BorderThickness="1" AutoGenerateColumns="True" 
+                  SelectionChanged="EmployeeDataGrid_SelectionChanged" />
+
+        <!-- Form layout -->
+        <Grid Margin="0,400,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+
+            <!-- Left Column -->
+            <StackPanel Grid.Column="0" Margin="10">
+                <TextBlock Text="Given Name:" FontWeight="Bold" Foreground="#333" />
+                <TextBox x:Name="GivenNameTextBox" Width="250" Height="35" Margin="0,5,0,15" Background="White" />
+
+                <TextBlock Text="Gender:" FontWeight="Bold" Foreground="#333" />
+                <ComboBox x:Name="GenderComboBox" Width="250" Height="35" Margin="0,5,0,15">
+                    <ComboBoxItem Content="M" />
+                    <ComboBoxItem Content="F" />
+                    <ComboBoxItem Content="O" />
+                </ComboBox>
+
+                <TextBlock Text="Gross Salary:" FontWeight="Bold" Foreground="#333" />
+                <TextBox x:Name="SalaryTextBox" Width="250" Height="35" Margin="0,5,0,15" Background="White" />
+
+                <TextBlock Text="Supervisor:" FontWeight="Bold" Foreground="#333" />
+                <ComboBox x:Name="SupervisorComboBox" Width="250" Height="35" Margin="0,5,0,15" 
+                          DisplayMemberPath="FullName" SelectedValuePath="id" />
+            </StackPanel>
+
+            <!-- Right Column -->
+            <StackPanel Grid.Column="1" Margin="10">
+                <TextBlock Text="Family Name:" FontWeight="Bold" Foreground="#333" />
+                <TextBox x:Name="FamilyNameTextBox" Width="250" Height="35" Margin="0,5,0,15" Background="White" />
+
+                <TextBlock Text="Date of Birth:" FontWeight="Bold" Foreground="#333" />
+                <DatePicker x:Name="DateOfBirthPicker" Width="250" Height="35" Margin="0,5,0,15" Background="White" />
+
+                <TextBlock Text="Branch:" FontWeight="Bold" Foreground="#333" />
+                <ComboBox x:Name="BranchComboBox" Width="250" Height="35" Margin="0,5,0,15" 
+                          DisplayMemberPath="branch_name" SelectedValuePath="id" />
+            </StackPanel>
+        </Grid>
+
+        <!-- Buttons for operations -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,600,0,0">
+            <Button Content="Insert" Click="InsertButton_Click" Width="120" Height="40" 
+                    Background="#4CAF50" Foreground="White" FontWeight="Bold" Margin="10,0,10,0" />
+            <Button Content="Update" Click="UpdateButton_Click" Width="120" Height="40" 
+                    Background="#FFC107" Foreground="White" FontWeight="Bold" Margin="10,0,10,0" />
+            <Button Content="Delete" Click="DeleteButton_Click" Width="120" Height="40" 
+                    Background="#F44336" Foreground="White" FontWeight="Bold" Margin="10,0,10,0" />
+        </StackPanel>
+        <TextBox x:Name="MinSalaryTextBox" HorizontalAlignment="Left" Margin="447,630,0,0" TextWrapping="Wrap" Text="Minimum Salary" VerticalAlignment="Top" Width="120" Height="20"/>
+        <TextBox x:Name="MaxSalaryTextBox" HorizontalAlignment="Left" Margin="590,630,0,0" TextWrapping="Wrap" Text="Maximum Salary" VerticalAlignment="Top" Width="120" Height="20"/>
+        <Button x:Name="BtnFilter" Content="Filter" HorizontalAlignment="Left" Margin="540,666,0,0" VerticalAlignment="Top" Width="71" Background="#FF36A3A5" Click="BtnFilter_Click"/>
+    </Grid>
+</Window>
